@@ -1,0 +1,39 @@
+pipeline_name: sales_csv_pipeline
+
+source:
+  type: csv
+  path: examples/sample_sales.csv
+  delimiter: ","
+
+transformations:
+  - type: cast_types
+    columns:
+      quantity: int
+      unit_price: float
+      discount: float
+
+  - type: fill_nulls
+    columns:
+      discount: 0.0
+      region: "unknown"
+
+  - type: add_column
+    name: total_price
+    expression: "round(float(unit_price) * int(quantity) * (1 - float(discount)), 2)"
+
+  - type: filter_rows
+    condition: "float(unit_price) > 0"
+
+  - type: normalize_text
+    columns: [product, region]
+    operations: [strip, title]
+
+  - type: drop_columns
+    columns: [internal_notes]
+
+destination:
+  type: duckdb
+  database: data_lake.duckdb
+  table: sales
+  schema: refined
+  write_mode: append

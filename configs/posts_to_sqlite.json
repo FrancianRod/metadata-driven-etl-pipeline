@@ -1,0 +1,42 @@
+{
+  "pipeline_name": "posts_to_sqlite",
+
+  "source": {
+    "type": "rest_api",
+    "url": "https://jsonplaceholder.typicode.com/posts",
+    "method": "GET"
+  },
+
+  "transformations": [
+    {
+      "type": "rename_columns",
+      "mapping": {
+        "id": "post_id",
+        "userId": "user_id"
+      }
+    },
+    {
+      "type": "cast_types",
+      "columns": {
+        "post_id": "int",
+        "user_id": "int"
+      }
+    },
+    {
+      "type": "add_column",
+      "name": "title_length",
+      "expression": "len(title)"
+    },
+    {
+      "type": "filter_rows",
+      "condition": "int(user_id) <= 5"
+    }
+  ],
+
+  "destination": {
+    "type": "sqlite",
+    "database": "output/posts.db",
+    "table": "posts",
+    "write_mode": "replace"
+  }
+}

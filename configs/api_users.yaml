@@ -1,1 +1,33 @@
+pipeline_name: jsonplaceholder_users
 
+source:
+  type: rest_api
+  url: https://jsonplaceholder.typicode.com/users
+  method: GET
+  # root_key: not needed — response is already a list
+
+transformations:
+  - type: rename_columns
+    mapping:
+      id: user_id
+
+  - type: add_column
+    name: company_name
+    expression: "company['name']"
+
+  - type: drop_columns
+    columns: [address, company]
+
+  - type: normalize_text
+    columns: [name, email]
+    operations: [strip, lower]
+
+  - type: deduplicate
+    subset: [email]
+
+destination:
+  type: duckdb
+  database: data_lake.duckdb
+  table: users
+  schema: raw
+  write_mode: replace
