@@ -1,0 +1,21 @@
+event_id,timestamp,service,region,status_code,response_time_ms,records_processed,error_flag,operator_id,notes
+EVT001,2024-11-01 08:02:11,data_ingestion,us-east-1,200,342,15200,0,op_07,
+EVT002,2024-11-01 08:15:44,data_ingestion,us-east-1,200,289,18400,0,op_07,
+EVT003,2024-11-01 09:00:00,model_scoring,us-east-1,500,4100,0,1,op_12,timeout during batch
+EVT004,2024-11-01 09:30:22,data_ingestion,sa-east-1,200,410,22100,0,op_07,
+EVT005,2024-11-01 10:05:55,model_scoring,sa-east-1,200,980,22100,0,op_12,
+EVT006,2024-11-01 10:45:10,report_gen,us-east-1,200,1200,37300,0,op_03,
+EVT007,2024-11-01 11:00:00,data_ingestion,us-west-2,200,315,19800,0,op_07,
+EVT008,2024-11-01 11:30:00,model_scoring,us-west-2,200,870,19800,0,op_12,
+EVT009,2024-11-01 12:00:00,report_gen,sa-east-1,500,8900,0,1,op_03,memory overflow
+EVT010,2024-11-01 12:45:00,data_ingestion,us-east-1,200,298,25600,0,op_07,
+EVT011,2024-11-01 13:00:00,model_scoring,us-east-1,200,910,25600,0,op_12,
+EVT012,2024-11-01 14:00:00,report_gen,us-east-1,200,1350,80700,0,op_03,
+EVT013,2024-11-01 14:30:00,data_ingestion,sa-east-1,200,388,21000,0,op_07,
+EVT014,2024-11-01 15:00:00,model_scoring,sa-east-1,200,940,21000,0,op_12,
+EVT015,2024-11-01 15:45:00,report_gen,us-west-2,200,1100,62500,0,op_03,
+EVT016,2024-11-01 16:00:00,data_ingestion,us-east-1,200,275,17900,0,op_07,
+EVT017,2024-11-01 16:30:00,model_scoring,us-east-1,200,860,17900,0,op_12,
+EVT018,2024-11-01 17:00:00,report_gen,us-east-1,200,995,53400,0,op_03,
+EVT019,2024-11-01 17:15:00,data_ingestion,sa-east-1,200,401,20300,0,op_07,
+EVT020,2024-11-01 17:45:00,model_scoring,sa-east-1,500,5200,0,1,op_12,node failure
