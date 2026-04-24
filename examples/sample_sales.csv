@@ -1,0 +1,11 @@
+product,quantity,unit_price,discount,region,internal_notes
+Laptop Pro,2,1200.00,0.1,south,old stock
+Wireless Mouse,10,29.99,0.0,north,
+USB-C Hub,5,49.99,0.05,east,promo
+Mechanical Keyboard,3,89.99,,west,
+Monitor 4K,1,450.00,0.15,south,
+Webcam HD,8,65.00,0.0,north,fast seller
+Laptop Pro,1,1200.00,0.0,east,
+SSD 1TB,12,99.99,0.1,west,
+Headset Pro,4,120.00,0.0,south,
+USB-C Hub,2,49.99,0.0,east,
